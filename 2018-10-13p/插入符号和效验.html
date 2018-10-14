@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function() {
+			$("h1").click(function() {
+				var $p1 = $("<p>鹅鹅鹅</p>");
+				$(this).after($p1);
+
+				var $p2 = $("<p>曲项向天歌</p>");
+				$(this).next().after($p2);
+
+				var $p3 = $("<p>白毛浮绿水</p>");
+				$(this).next().next().after($p3);
+
+				var $p4 = $("<p>红掌拨清波</p>");
+				$(this).next().next().after($p4);
+
+				$("#btn1").show();
+				$("#btn2").show();
+			});
+
+			$("#btn1").click(function() {
+				var p1 = $("p:eq(0)").text();
+				$("p:eq(0)").html(p1 + "<span style='color: red'>，</span>");
+				var p2 = $("p:eq(1)").text();
+				$("p:eq(1)").html(p2 + "<span style='color: red'>。</span>");
+				var p3 = $("p:eq(2)").text();
+				$("p:eq(2)").html(p3 + "<span style='color: red'>，</span>");
+				var p4 = $("p:eq(3)").text();
+				$("p:eq(3)").html(p4 + "<span style='color: red'>。</span>");
+			});
+
+			$("#btn2").click(function() {
+				var $input = $("<input class='content' type='text'><br>");
+				$("p").replaceWith($input);
+
+				var $checkmx = $('<input id="bth3" type="button" value="检查默写" />');
+				$checkmx.bind("click",function() {
+					var inp1 = $(".content")[0].value;
+					if(inp1 != "鹅鹅鹅") {
+						$(".content")[0].style.border = "1px solid red";
+					}
+					var inp2 = $(".content")[1].value;
+					if(inp2 != "曲项向天歌") {
+						$(".content")[1].style.border = "1px solid red";
+					}
+					var inp3 = $(".content")[2].value;
+					if(inp3 != "白毛浮绿水") {
+						$(".content")[2].style.border = "1px solid red";
+					}
+					var inp4 = $(".content")[3].value;
+					if(inp4 != "红掌拨清波") {
+						$(".content")[3].style.border = "1px solid red";
+					}
+				});
+				$(this).replaceWith($checkmx);
+			});
+		});
+	</script>
+
+	<body>
+		<h1>咏鹅</h1>
+		<input id="btn1" style="display: none;" type="button" value="添加标点" />
+		<input id="btn2" style="display: none;" type="button" value="开启默写" />
+	</body>
+
+</html>

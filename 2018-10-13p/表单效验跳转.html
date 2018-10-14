@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				$("div").hover(function(){
+					$(this).toggleClass("a");
+				},function(){
+					$(this).toggleClass("a");
+				});
+				$(".bth").click(function(){
+					var name = $("input:first").val();
+					if(name=="admin"){
+						location.href="https://www.2345.com/?k7648283";
+					}
+				});
+				$("input:first").keydown(function(event){
+					if(event.keyCode==13&&$(this).val()=="admin"){
+						location.href="https://www.2345.com/?k7648283";
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div style="widows: 400px;height: 200px;border: solid;">
+			请输入姓名：<input type="text" /><br />
+			<input class="bth" type="button" value="提交" />
+		</div>
+	</body>
+</html>
